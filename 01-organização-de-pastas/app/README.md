@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Organização de Pastas
+Este é um projeto simples com a organização de pastas que pode ser usado como template mais básico de qualquer projeto inicial com Next 13
 
-## Getting Started
+# Pastas
+## app
+Em app ficam arquivos referentes a layouts e páginas de loading e error. Além disso, no Next 13, as rotas são organizadas em pastas dentro da pasta app como, por exemplo, app/about/page.tsx
+## assets
+Em assets ficam arquivos estáticos da aplicação como ícones, imagens, etc.
+## components
+Em components ficam arquivos referentes a componentes compartilhados entre páginas ou outros componentes mais complexos dentro da aplicação.
+## contexts
+Em contexts ficam arquivos referentes a contextos da aplicação criados utilizando o conceito de API Context.
+## hooks
+Em hooks ficam os arquivos referentes a hooks personalizados que serão utilizados por mais de um componente na aplicação.
+## models
+Em models ficam os arquivos referentes a modelos que permitem a tipagem em toda a aplicação.
+## redux
+Em redux ficam os arquivos referentes a configuração do redux na aplicação que pode substituir contexts uma vez que o redux é mais indicado para grandes aplicações que API Context.
+## storybook
+Em storybook ficam os arquivos referentes a documentações de componentes e páginas da aplicação com storybook. Esta pasta pode ser facilmente substituida apenas colocando os arquivos nas mesmas pastas dos componentes e páginas que eles documentam.
+## styles
+Em styles ficam os arquivos referentes a estilizações compartilhadas em toda a aplicação.
+## utils
+Em utils ficam os arquivos referentes a funções utilizadas em mais de um componente na aplicação.
+## test
+Em test ficam os arquivos referentes a diferentes testes da aplicação.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Aviso
+Esta estrutura de pastas não precisa ser seguida a risca com exceção da organização de pastas referentes a páginas da aplicação que o próprio Next 13 empoe. 
+A depender do projeto e convenções da equipe pode-se ter diferentes organizações de pastas. Contudo, esta forma de organização atende muito bem aos critérios didáticos uma vez que cada tópico é bem separado por pastas.
