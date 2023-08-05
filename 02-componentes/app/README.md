@@ -1,0 +1,2 @@
+# Aviso
+Começe lendo sobre os componentes Button e Card que são dois exemplos mais básicos. Depois, leia sobre o componente Contador que contém mais informações como chamadas diretas e indiretas e useState.
