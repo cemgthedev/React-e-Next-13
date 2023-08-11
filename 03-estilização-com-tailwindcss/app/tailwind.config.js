@@ -8,11 +8,6 @@ module.exports = {
   darkMode: 'class', // é importante definir desta forma para que a troca de temas funcione
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       fontFamily: {
         sans: 'var(--font-sans)', // observe que o layout principal contém font-sans, pois essa será a fonte principal da estilização
         alt: 'var(--font-alt)'
@@ -25,6 +20,20 @@ module.exports = {
         'md': '16px',
         'sm': '12px',
         'xs': '8px'
+      },
+      keyframes: {
+        down: {
+          '0%': {
+            transform: 'translateY(-20px)',
+            opacity: 0
+          },
+          '100%': {
+            transform: 'translateY(0px)'
+          }
+        }
+      },
+      animation: {
+        down: 'down 350ms ease-in-out'
       }
     },
   },

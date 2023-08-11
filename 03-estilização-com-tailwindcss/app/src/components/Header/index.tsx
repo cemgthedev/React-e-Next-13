@@ -1,45 +1,56 @@
 import { ListIcon } from "@/assets/icons"
 import { Heading } from "@/components/Heading"
-import clsx from "clsx"
 import Link from "next/link"
-import { ComponentProps } from "react"
+/**
+ * ao invés de 'next/router' use:
+ *     import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+*/
+import { usePathname } from "next/navigation"
+import { ComponentProps, useState } from "react"
 import { twMerge } from "tailwind-merge"
 import { Label } from "../Label"
 
 
 export interface HeaderProps extends ComponentProps<'header'> { }
 export function Header({ children, className, ...props }: HeaderProps) {
+    const [openModal, setOpenModal] = useState<boolean>(false)
+    const pathName = usePathname()
+    console.log(pathName);
+
     return <header
-        className={twMerge('text-slate-50 bg-violet-600 dark:bg-zinc-950 flex items-center p-8 duration-300', children ? 'justify-between' : '', className)}
+        className={twMerge('relative text-slate-50 bg-violet-600 dark:bg-zinc-950 flex flex-col justify-center p-8 duration-300', children ? 'justify-between' : '', className)}
         {...props}
     >
-        <Heading className="text-slate-50">LOGO</Heading>
-        <nav
-            className={clsx(children ? '' : 'm-auto')}
-        >
-            <ul
-                className="flex max-md:hidden"
+        <div className="flex justify-between items-center">
+            <Heading className="text-slate-50">LOGO</Heading>
+            <nav
+                className={twMerge(children ? '' : 'm-auto')}
             >
-                <Label size="lg" className="text-slate-50 menu-item"><Link href='/'>Home</Link></Label>
-                <Label size="lg" className="text-slate-50 menu-item"><Link href='/dashboard'>Dashboard</Link></Label>
-                <Label size="lg" className="text-slate-50 menu-item"><Link href='/animations'>Animations</Link></Label>
-                <Label size="lg" className="text-slate-50 menu-item"><Link href='/about'>About</Link></Label>
-            </ul>
-        </nav>
+                <div
+                    className="flex max-md:hidden"
+                >
+                    <Link href='/'><Label size="lg" className={twMerge("text-slate-50 menu-item", pathName == '/' ? 'menu-item-selected' : '')}>Home</Label></Link>
+                    <Link href='/dashboard'><Label size="lg" className={twMerge("text-slate-50 menu-item", pathName == '/dashboard' ? 'menu-item-selected' : '')}>Dashboard</Label></Link>
+                    <Link href='/animations'><Label size="lg" className={twMerge("text-slate-50 menu-item", pathName == '/animations' ? 'menu-item-selected' : '')}>Animations</Label></Link>
+                    <Link href='/about'><Label size="lg" className={twMerge("text-slate-50 menu-item", pathName == '/about' ? 'menu-item-selected' : '')}>About</Label></Link>
+                </div>
+            </nav>
+            <div
+                className="flex items-center justify-center gap-2"
+            >
+                {children}
+                <button onClick={() => setOpenModal(prevState => !prevState)} className="md:hidden"><ListIcon width={32} height={32} /></button>
+            </div>
+        </div>
         <div
-            className="relative flex items-center justify-center gap-2"
+            className={twMerge("items-center justify-center md:hidden", openModal ? 'flex pointer-events-auto animate-down' : 'hidden pointer-events-none')}
         >
-            {children}
-            <button data-toggle="toggle" data-target="#model" className="md:hidden"><ListIcon width={32} height={32} /></button>
-            <ul
-                id="model"
-                className="ring-2 ring-red-500 toggle flex-col absolute top-0 translate-y-1/2"
-            >
-                <Label size="lg" className="text-slate-50 menu-item"><Link href='/'>Home</Link></Label>
-                <Label size="lg" className="text-slate-50 menu-item"><Link href='/dashboard'>Dashboard</Link></Label>
-                <Label size="lg" className="text-slate-50 menu-item"><Link href='/animations'>Animations</Link></Label>
-                <Label size="lg" className="text-slate-50 menu-item"><Link href='/about'>About</Link></Label>
-            </ul>
+            <nav className="w-fit flex flex-col p-4">
+                <Link href='/'><Label size="lg" className={twMerge("text-slate-50", pathName == '/' ? 'menu-item-selected' : 'menu-item')}>Home</Label></Link>
+                <Link href='/dashboard'><Label size="lg" className={twMerge("text-slate-50", pathName == '/dashboard' ? 'menu-item-selected' : 'menu-item')}>Dashboard</Label></Link>
+                <Link href='/animations'><Label size="lg" className={twMerge("text-slate-50", pathName == '/animations' ? 'menu-item-selected' : 'menu-item')}>Animations</Label></Link>
+                <Link href='/about'><Label size="lg" className={twMerge("text-slate-50", pathName == '/about' ? 'menu-item-selected' : 'menu-item')}>About</Label></Link>
+            </nav>
         </div>
     </header>
 }

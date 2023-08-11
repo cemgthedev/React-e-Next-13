@@ -14,11 +14,11 @@ export interface ToggleThemeProps {
 }
 
 export function ToggleTheme({ themeDark, toggleThemeDark }: ToggleThemeProps) {
-    return <div
+    return <button
         onClick={() => toggleThemeDark(prevState => !prevState)}
     >
         {
             themeDark ? <MoonIcon width={32} height={32} className="fill-cyan-300" /> : <SunIcon width={32} height={32} className="fill-yellow-300" />
         }
-    </div>
+    </button>
 }

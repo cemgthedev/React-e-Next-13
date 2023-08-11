@@ -20,7 +20,7 @@ export function Content({ children, ...props }: ContentProps) {
      * do parâmetro ser passado p-8. Logo, twMerge serve para solucionar o problema não permitindo duplicidades
     */
     return <div
-        className={twMerge('', themeDark ? 'dark' : '')}
+        className={twMerge('flex flex-col', themeDark ? 'dark' : '')}
         {...props}
     >
         <Header><ToggleTheme themeDark={themeDark} toggleThemeDark={setThemeDark} /></Header>

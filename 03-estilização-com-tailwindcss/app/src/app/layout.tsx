@@ -10,7 +10,7 @@ import { Content } from './content';
 */
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const poppins = Poppins({
-  subsets: ['latin'],
+  subsets: ['latin-ext'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-alt'
 })
