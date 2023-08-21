@@ -1,0 +1,3 @@
+# Rotas Estáricas
+
+# Rotas Dinâmicas
