@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 
 import { createUserSchema } from "@/ui/pages/FirstFormulary/validations/create.schema";
 
-export function FirstFormulary() {
+export function FirstFormularyPage() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: zodResolver(createUserSchema),
     });
@@ -14,7 +14,7 @@ export function FirstFormulary() {
     }
     
     return (
-        <div className="bg-yellow-200 rounded-md p-4 flex flex-col gap-4 w-[512px] max-sm:w-full">
+        <div className="bg-yellow-200 rounded-md p-4 flex flex-col gap-4 w-[512px] max-sm:w-full h-fit">
             <h1 className="text-zinc-900 text-2xl font-semibold">Cadastro de usuário</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
                 <div className="flex flex-col gap-1">
